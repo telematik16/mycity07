@@ -1,0 +1,40 @@
+export interface PlanRow {
+  [key: string]: string | number;
+  _plate: string;
+  _address: string;
+  _status: 'Посещен' | 'Не посещен';
+}
+
+export interface FactRow {
+  [key: string]: string | number;
+  _plate: string;
+  _address: string;
+  _status: 'По плану' | 'Вне плана';
+}
+
+export interface ColumnMapping {
+  planPlateCol: string;
+  planAddressCol: string;
+  factPlateCol: string;
+  factAddressCol: string;
+}
+
+export interface ComparisonResult {
+  planWithStatus: PlanRow[];
+  factOutOfPlan: FactRow[];
+  metrics: {
+    totalPlan: number;
+    visited: number;
+    notVisited: number;
+    outOfPlan: number;
+  };
+}
+
+export interface Geozone {
+  id: string;
+  name: string;
+  coordinates: string;
+}
+
+export type TabType = 'sync' | 'settings' | 'results' | 'report';
+
